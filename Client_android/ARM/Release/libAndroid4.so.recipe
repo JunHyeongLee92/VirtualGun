@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project>
+  <SOLibPaths>C:\Tipssoft\Android4-Cursor(ppt)\ARM\Release\libAndroid4.so;C:\ProgramData\Microsoft\AndroidNDK\android-ndk-r10e\prebuilt\android-arm\gdbserver\gdbserver;C:\ProgramData\Microsoft\AndroidNDK\android-ndk-r10e\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi-v7a\thumb\libgnustl_static.a</SOLibPaths>
+  <OObjPaths>C:\Tipssoft\Android4-Cursor(ppt)\Android4\Android4.NativeActivity\ARM\Release</OObjPaths>
+  <Configuration>Release</Configuration>
+  <Platform>ARM</Platform>
+  <AndroidArchitecture>armeabi-v7a</AndroidArchitecture>
+  <!--links to other recipe files-->
+  <RecipeFiles />
+</project>
