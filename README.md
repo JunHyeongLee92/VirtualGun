@@ -17,11 +17,14 @@ Visual Studio 2015 개발툴의 Windows가 아닌 다른 OS의 앱을 개발할 
 안드로이드 스마트 폰을 총이라고 가정하여 사용자가 PC 를 정면으로 바라본 상태에서 스마트 폰으로 타겟을 조준하고 특정 동작을 취하여 타겟을 제거하는 방식의 게임이다.
 
 * 시연동영상
+
 [![VirtualGun 시연 동영상](http://img.youtube.com/vi/hC6w2bgZjSc/0.jpg)](https://youtu.be/hC6w2bgZjSc)
 [시연동영상 바로가기](https://youtu.be/hC6w2bgZjSc)
 
 * 서버 프로그램 사진
+
 ![server](./img/server.jpg)
 
 * 클라이언트 프로그램 사진
+
 ![client](./img/client.jpg)
