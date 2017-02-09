@@ -166,6 +166,7 @@ void CMyServerDlg::OnPaint()
 		line_pen.CreatePen(PS_SOLID, 3, RGB(255, 0, 0));
 		CPen *p_old_pen = dc.SelectObject(&line_pen);
 
+		//벌레를 그리고 이동경로 직선을 그려줍니다.
 		dc.MoveTo(m_cursor_pos1.x, m_cursor_pos1.y - 100);
 		dc.LineTo(m_cursor_pos1.x, m_cursor_pos1.y + 100);
 		dc.MoveTo(m_cursor_pos1.x - 100, m_cursor_pos1.y);
@@ -279,6 +280,7 @@ afx_msg LRESULT CMyServerDlg::On25002(WPARAM wParam, LPARAM lParam)
 
 		recv(p_user->h_socket, (char *)&check, 1, 0);
 		if(check == 27) {
+			
 			recv(p_user->h_socket, (char *)&msg_id, 1, 0);
 			recv(p_user->h_socket, (char *)&body_size, 2, 0);
 
@@ -286,7 +288,8 @@ afx_msg LRESULT CMyServerDlg::On25002(WPARAM wParam, LPARAM lParam)
 				char *p_body_data = new char[body_size];
 				recv(p_user->h_socket, p_body_data, body_size, 0);
 				if(msg_id == 1) {
-
+					/*처음 클라이언트가 접속될때 발생하는 메세지로
+					클라이언트 정보를 대화창에 출력*/
 					CString str;
 					str = p_user->ip_address;
 					str += " : ";
@@ -342,6 +345,9 @@ afx_msg LRESULT CMyServerDlg::On25002(WPARAM wParam, LPARAM lParam)
 
 				else if (msg_id == 22)
 				{
+					/*클라이언트의 센서값을 가져와 
+					화면에 해당 좌표에 커서를 출력*/
+
 					float *p_sensor_data = (float *)p_body_data;
 					//CString str;
 					//str.Format("%8.4f %8.4f %8.4f", p_sensor_data[0], p_sensor_data[1], p_sensor_data[2]);
@@ -417,7 +423,7 @@ void CMyServerDlg::OnTimer(UINT_PTR nIDEvent)
 	CDialogEx::OnTimer(nIDEvent);
 }
 
-
+//마우스로 벌레를 직접 클릭할때 발생하는 함수
 void CMyServerDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// if (m_bugs.GetItem() != 0)	m_bugs.Boom();
