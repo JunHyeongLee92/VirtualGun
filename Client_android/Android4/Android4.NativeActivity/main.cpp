@@ -116,7 +116,9 @@ static int engine_init_display(struct engine* engine) {
 	return 0;
 }
 
+//8개의 사각형을 그리는 함수 재정의
 #define SetRectF(p,sx,sy,ex,ey) {p[0] = sx; p[1] = ey; p[2] = ex; p[3] = ey; p[4] = ex; p[5] = sy; p[6] = sx; p[7] = sy;}
+
 #define INNER_X_MARGIN 0.02f
 #define INNER_Y_MARGIN 0.01f
 /**
@@ -135,6 +137,7 @@ static void engine_draw_frame(struct engine* engine) {
 	int y, x;
 	GLfloat pos[8];
 
+	//화면에 사각형을 그려주는 반복문
 	glEnableClientState(GL_VERTEX_ARRAY);
 	for (y = 0; y < 8; y++) {
 		for (x = 0; x < 2; x++) {
@@ -175,7 +178,7 @@ static void engine_term_display(struct engine* engine) {
 	engine->surface = EGL_NO_SURFACE;
 }
 
-
+//서버로 보내는 데이터를 프레임화 시켜주는 함수
 void SendFrameData(int ah_socket, unsigned char a_msg_id, const char *ap_data, unsigned short int a_data_size)
 {
 	int send_data_size = a_data_size + 4;
@@ -191,7 +194,7 @@ void SendFrameData(int ah_socket, unsigned char a_msg_id, const char *ap_data, u
 /**
 * 다음 입력 이벤트를 처리합니다.
 */
-
+//input이 들어올때 작동하는 함수
 static int32_t engine_handle_input(struct android_app* app, AInputEvent* event) {
 	struct engine* engine = (struct engine*)app->userData;
 	if (AInputEvent_getType(event) == AINPUT_EVENT_TYPE_MOTION) { //터치 인풋 
@@ -219,7 +222,7 @@ static int32_t engine_handle_input(struct android_app* app, AInputEvent* event) 
 	}
 	return 0;
 }
-
+//센서값을 가져오는 것을 시작하는 함수
 void StartSensor(engine* ap_engine)
 {
 	if (ap_engine->accelerometer_sensor != NULL)
@@ -356,6 +359,7 @@ void android_main(struct android_app* state) {
 			}
 
 			// 센서에 데이터가 있으면 바로 처리됩니다.
+			// 자이로 센서 값을 가져와 서버로 전송해주는 부분
 			if (ident == LOOPER_ID_USER) {
 				if (engine.accelerometer_sensor!= NULL) {
 					ASensorEvent event;
