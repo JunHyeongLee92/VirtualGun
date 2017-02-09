@@ -9,15 +9,19 @@
 #define PLATFORM_ANDROID   0
 #define PLATFORM_WIN32     1
 
-//int black_number = 0;
+//프로그램에 실행 시 생성되는 다양한 색깔의 원형을 Bug(벌레)로 호칭합니다.
 
+//벌레의 기본정보 초기화 함수
 Bug::Bug()
 {
+	//시작좌표와 종료좌표
 	m_s_pos.x = 0;
 	m_s_pos.y = 0;
 	m_e_pos.x = 0;
 	m_e_pos.y = 0;
 
+	//이동경로는 직선의 방정식을 이용함
+	//y = a*x + b에 사용되는 값
 	m_a = (float)0;
 	m_b = (float)0;
 
@@ -39,6 +43,7 @@ Bug::~Bug()
 
 }
 
+//벌레 생성시 화면의 4면에 대한 시작 좌표 선택 함수
 void Bug::MakeBugPos(T_POINT *a_pos, int a_side, int a_width, int a_height)
 {
 	if (a_side == 0) {
@@ -59,6 +64,7 @@ void Bug::MakeBugPos(T_POINT *a_pos, int a_side, int a_width, int a_height)
 	}
 }
 
+//벌레 진행 방향 회전함수
 void Bug::Turn()
 {
 	
@@ -91,48 +97,9 @@ void Bug::Turn()
 	}
 }
 
-
+//벌레 생성 함수
 void Bug::MakeBug(int a_width, int a_height)
 {
-	/*if (black_number == 0) {
-		m_bug_kind = rand() % 2;
-	}*/
-
-	//if (black_number == 0 && m_bug_kind == 1)   //흡수하는 벌레
-	//{
-	//	m_s_pos.x = rand()%2 * a_width;
-	//	m_s_pos.y = rand() % (a_height - 300) + 50;
-
-	//	m_e_pos.x = a_width - m_s_pos.x;
-	//	m_s_pos.y = a_height - m_s_pos.y;
-
-	//	m_color.red = 0;
-	//	m_color.green = 0;
-	//	m_color.blue = 0;
-
-	//	m_size = 140;
-	//	black_number = 1;
-	//}
-	//else
-	//{
-	//	int first_side = rand() % 4, second_side; // 0 ~ 3
-
-	//	MakeBugPos(&m_s_pos, first_side, a_width, a_height);
-
-	//	do {
-	//		second_side = rand() % 4;
-	//	} while (first_side == second_side);
-
-	//	MakeBugPos(&m_e_pos, second_side, a_width, a_height);
-
-	//	if (m_e_pos.x == m_s_pos.x) m_e_pos.x += 30;
-
-	//	m_color.red = rand() % 130 + 100;
-	//	m_color.green = rand() % 130 + 100;
-	//	m_color.blue = rand() % 130 + 100;
-
-	//	m_size = rand() % 80 + 40; // 40 ~ 120
-	//}
 	int first_side = rand() % 4, second_side; // 0 ~ 3
 
 	MakeBugPos(&m_s_pos, first_side, a_width, a_height);
@@ -158,7 +125,7 @@ void Bug::MakeBug(int a_width, int a_height)
 	Move();
 
 }
-
+//벌레 움직이는 함수
 int Bug::Move()
 {
 	int end_flag = 0;
@@ -175,7 +142,7 @@ int Bug::Move()
 
 	return end_flag;
 }
-
+//벌레 영역 확인 함수
 int Bug::Check(int a_x, int a_y)
 {
 	return int(sqrt((m_x - a_x)*(m_x - a_x) + (m_y - a_y)*(m_y - a_y))) <= (m_size/2);
@@ -231,7 +198,7 @@ const T_COLOR *Bug::GetColor()
 {
 	return &m_color;
 }
-
+//벌레 크기에 따른 점수를 반환하는 함수
 int Bug::GetBugScore()
 {
 	int score = int(atan(m_a) * 180 / 3.141592);
