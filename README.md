@@ -1,10 +1,12 @@
 # 프로젝트 명 : VirtualGun
+* Visual Studio 2015의 Cross platform기술을 이용한 FPS 게임
+
 ## 개발 환경
 * Visual Studio 2015
 
 ## 프로젝트 선정 배경
 * 이 프로젝트는 자바와 같은 어플리케이션 개발에 특화된 프로그램을 사용하는 것이 아니라 
-Visual Studio 2015 개발툴의 Windows가 아닌 다른 OS의 앱을 개발할 수 있는 cross flatform 기술을 
+Visual Studio 2015 개발툴의 Windows가 아닌 다른 OS의 앱을 개발할 수 있는 cross platform 기술을 
 이용하여 안드로이드 어플을 개발하는 것으로, 
 아직 함수나 여러 가지 지원 쪽에서 많이 부족함을 보이고 있으나, 
 이러한 것을 발판 삼아 native 언어의 활용성에 대해서 깨닫는 것에 큰 목표가 있다. 
