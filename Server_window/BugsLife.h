@@ -6,12 +6,7 @@
 #define LIFE	20
 #define ITEM_COUNT		5
 
-
-//struct BLACK_BUG
-//{
-//	int m_black_number;
-//
-//};
+//프로그램에 실행 시 생성되는 다양한 색깔의 원형을 Bug(벌레)로 호칭합니다.
 
 struct T_POINT
 {
@@ -26,7 +21,7 @@ struct T_COLOR
 	unsigned char blue;
 };
 
-
+//벌레에 대한 정보를 가지는 클래스
 class Bug
 {
 private:
@@ -69,7 +64,7 @@ public:
 	const T_COLOR *GetColor();
 };
 
-
+//게임에 대한 정보를 가지는 클래스
 class BugsLife 
 {
 private:

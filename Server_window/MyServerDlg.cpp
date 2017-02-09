@@ -61,6 +61,7 @@ BOOL CMyServerDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 큰 아이콘을 설정합니다.
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
+	//소켓 생성과 연결에 대한 부분
 	mh_socket = socket(AF_INET, SOCK_STREAM, 0);
 
 	sockaddr_in srv_addr;
@@ -196,7 +197,7 @@ HCURSOR CMyServerDlg::OnQueryDragIcon()
 }
 
 
-
+//클라이언트가 연결됐을때 발생하는 메세지
 afx_msg LRESULT CMyServerDlg::On25001(WPARAM wParam, LPARAM lParam)
 {
 	SOCKET h_socket = (SOCKET)wParam;
@@ -241,6 +242,7 @@ void CMyServerDlg::AddEvent(CString a_string)
 	m_event_list.SetCurSel(index);
 }
 
+//클라이언트와 데이터를 주고받을때 프레임화 해주는 함수
 void CMyServerDlg::SendFrameData(SOCKET ah_socket,
 								 unsigned char a_msg_id,
 								 const char *ap_data,
@@ -257,7 +259,7 @@ void CMyServerDlg::SendFrameData(SOCKET ah_socket,
 	delete[] p_send_data;
 }
 
-
+//클라이언트로부터 값을 받을 때 각 메세지에대해 반응할 조건문
 afx_msg LRESULT CMyServerDlg::On25002(WPARAM wParam, LPARAM lParam)
 {
 	ClientSocket *p_user;
