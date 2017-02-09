@@ -18,13 +18,13 @@ Visual Studio 2015 개발툴의 Windows가 아닌 다른 OS의 앱을 개발할 
 
 * 시연동영상
 
-[![VirtualGun 시연 동영상](http://img.youtube.com/vi/hC6w2bgZjSc/0.jpg)](https://youtu.be/hC6w2bgZjSc)
+    [![VirtualGun 시연 동영상](http://img.youtube.com/vi/hC6w2bgZjSc/0.jpg)](https://youtu.be/hC6w2bgZjSc)
 [시연동영상 바로가기](https://youtu.be/hC6w2bgZjSc)
 
-* 서버 프로그램 사진
+* 윈도우 서버 프로그램 실행 화면
 
-![server](./img/server.jpg)
+    ![server](./img/server.jpg)
 
-* 클라이언트 프로그램 사진
+* 안드로이드 클라이언트 프로그램 실행 화면
 
-![client](./img/client.jpg)
+    ![client](./img/client.jpg)
